@@ -9,7 +9,9 @@ describe('Valutes Store', () => {
     expect(Object.keys(valutes.rates.today).length).toBe(0);
     expect(Object.keys(valutes.rates.yesterday).length).toBe(0);
     expect(Object.keys(valutes.valutes).length).toBe(0);
+
     await valutes.addValutes();
+
     expect(Object.keys(valutes.rates.today).length).not.toBe(0);
     expect(Object.keys(valutes.rates.yesterday).length).not.toBe(0);
     expect(Object.keys(valutes.valutes).length).not.toBe(0);
