@@ -6,23 +6,23 @@ import AppTabs from '@/components/AppTabs/AppTabs.vue';
 import AppTabsItem from '@/components/AppTabs/AppTabsItem/AppTabsItem.vue';
 
 describe('AppTabs.vue', () => {
-  //   it('Количество кнопок = количеству app-tabs-item с атрибутом title', () => {
-  //     const wrapper = mount({
-  //       template: `
-  //             <app-tabs>
-  //                 <app-tabs-item title="Tab 1" />
-  //                 <app-tabs-item />
-  //             </app-tabs>
-  //         `,
-  //       components: {
-  //         'app-tabs': AppTabs,
-  //         'app-tabs-item': AppTabsItem,
-  //       },
-  //     });
+  it('Количество кнопок = количеству app-tabs-item с атрибутом title', () => {
+    const wrapper = mount({
+      template: `
+              <app-tabs>
+                  <app-tabs-item title="Tab 1" />
+                  <app-tabs-item />
+              </app-tabs>
+          `,
+      components: {
+        'app-tabs': AppTabs,
+        'app-tabs-item': AppTabsItem,
+      },
+    });
 
-  //     expect(wrapper.findAll('.tabs__navigation-item').length).toBe(1);
-  //     wrapper.unmount();
-  //   });
+    expect(wrapper.findAll('.tabs__navigation-item').length).toBe(1);
+    wrapper.unmount();
+  });
 
   it('currentTab', async () => {
     const wrapper = mount({

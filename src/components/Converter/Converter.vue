@@ -4,7 +4,7 @@
     <div class="row">
       <div class="column">
         <input @input="convert" type="text" v-model="inputed" />
-        <select @change="convert" v-model="selected[0]" name="" id="">
+        <select @change="convert" v-model="selected[0]">
           <option
             v-for="charCode in listCharCode"
             :key="charCode"
@@ -21,8 +21,8 @@
 
     <div class="row">
       <div class="column">
-        <input type="text" v-model="result" disabled />
-        <select @change="convert" name="" id="" v-model="selected[1]">
+        <input disabled type="text" v-model="result" />
+        <select @change="convert" v-model="selected[1]">
           <option
             v-for="charCode in listCharCode"
             :key="charCode"
@@ -50,20 +50,15 @@ const inputed = ref<string | number>('');
 const result = ref<string | number>('');
 
 const convert = () => {
-  let defaultValute = {
-    Value: 1,
-    Nominal: 1,
-  };
-
-  let firstValute = valutes.value[selected.value[0]] ?? defaultValute,
+  const firstValute = valutes.value[selected.value[0]],
     firstValuteValue = firstValute.Value * Number(inputed.value),
     firstValuteNominal = firstValute.Nominal;
 
-  let secondValute = valutes.value[selected.value[1]] ?? defaultValute,
+  const secondValute = valutes.value[selected.value[1]],
     secondValuteValue = secondValute.Value,
     secondValuteNominal = secondValute.Nominal;
 
-  let newResult =
+  const newResult =
     firstValuteValue /
     firstValuteNominal /
     (secondValuteValue / secondValuteNominal);
@@ -75,7 +70,7 @@ const listCharCode = computed(() => {
   const arr: string[] = [];
   const objValutes = valutes.value;
 
-  Object.keys(objValutes).forEach((key, index) => {
+  Object.keys(objValutes).forEach((key) => {
     arr.push(objValutes[key].CharCode);
   });
 
