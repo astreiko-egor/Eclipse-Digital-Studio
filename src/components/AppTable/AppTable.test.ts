@@ -13,7 +13,7 @@ describe('AppTable.vue', () => {
       },
     });
 
-    expect(wrapper.find('thead').text()).toBe('thead data');
+    expect(wrapper.find('thead').text()).toBe('thead data5');
     wrapper.unmount();
   });
 
